@@ -138,7 +138,7 @@
 
         .service-icon { font-size: 1.5rem; color: var(--accent-color); background: #e3f2fd; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 10px; margin-bottom: 1rem; }
         
-        /* --- CONTACT SECTION CSS --- */
+        /* --- CONTACT SECTION CSS (FIXED FOR MOBILE) --- */
         .contact-container { 
             display: flex; 
             flex-direction: column; 
@@ -150,6 +150,8 @@
             border-radius: 20px;
             box-shadow: var(--shadow);
             max-width: 700px;
+            /* Added explicit width to fix centering on mobile */
+            width: 100%;
             margin: 0 auto;
         }
         
@@ -162,6 +164,11 @@
             .home-content { max-width: 100%; }
             .btn-box { justify-content: center; } .social-media { justify-content: center; }
             .home-img img { margin-bottom: 2rem; width: 80%; max-width: 320px; }
+            
+            /* Added this to prevent the card from being too big on phone screens */
+            .contact-container {
+                padding: 2rem 1rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -197,8 +204,13 @@
                 <h3 class="typing-text">I'm a <span class="type-span"></span></h3>
                 <p>I combine <strong>Operational Hospitality experience</strong> with a strong <strong>Literature background</strong> and <strong>AI skills</strong> to bridge the gap between revenue growth (Sales) and employee development (L&D).</p>
                 <div class="btn-box">
-                    <a href="#portfolio" class="btn">Explore My Work</a>
+                    <a href="#contact" class="btn">Explore My Work</a>
                     <a href="https://www.linkedin.com/in/gagandeepsalujaa/" target="_blank" class="btn-outline">LinkedIn Profile</a>
+                </div>
+                <div class="social-media">
+                    <a href="https://www.linkedin.com/login" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:workwithgagandeepsaluja@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.google.com/drive/" target="_blank"><i class="fas fa-file-alt"></i></a>
                 </div>
             </div>
             <div class="home-img">
@@ -242,6 +254,8 @@
                 </a>
             </div>
         </section>
+
+
         <section class="contact" id="contact">
             <h2 class="heading">Contact <span>Me</span></h2>
             <div class="contact-container">
@@ -263,7 +277,6 @@
     </main>
 
     <script>
-        /* Typing Effect */
         const typeSpan = document.querySelector('.type-span');
         const textArray = ["Sales Strategist", "Talent Developer", "Hospitality Professional", "Literature Student"];
         let textArrayIndex = 0;
@@ -291,7 +304,6 @@
         }
         document.addEventListener("DOMContentLoaded", () => setTimeout(type, 1000));
 
-        /* Mobile Menu */
         let menuIcon = document.querySelector('#menu-icon');
         let navbar = document.querySelector('.navbar');
         let mainContent = document.querySelector('#main-content');
@@ -315,7 +327,6 @@
             });
         });
 
-        /* Scroll Spy */
         let sections = document.querySelectorAll('section');
         window.onscroll = () => {
             sections.forEach(sec => {
