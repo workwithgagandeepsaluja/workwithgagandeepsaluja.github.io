@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- 1. VARIABLES --- */
+        /* --- VARIABLES --- */
         :root {
             --bg-color: #f8f9fa;
             --card-bg: #ffffff;
@@ -116,11 +116,10 @@
             justify-content: center;
             width: 100%;
         }
-        /* This makes the image look like a clickable card */
         .post-link {
             display: block;
             width: 100%;
-            max-width: 504px; /* Matches LinkedIn embed width */
+            max-width: 504px;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -139,7 +138,7 @@
 
         .service-icon { font-size: 1.5rem; color: var(--accent-color); background: #e3f2fd; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 10px; margin-bottom: 1rem; }
         
-        /* --- UPDATED CONTACT SECTION CSS --- */
+        /* --- CONTACT SECTION CSS --- */
         .contact-container { 
             display: flex; 
             flex-direction: column; 
@@ -185,6 +184,7 @@
             <a href="#home" class="nav-link active">Home</a>
             <a href="#about" class="nav-link">Background</a>
             <a href="#portfolio" class="nav-link">Strategy</a>
+            <a href="#services" class="nav-link">Expertise</a>
             <a href="#contact" class="nav-link">Contact</a>
         </nav>
     </header>
@@ -198,10 +198,14 @@
                 <h3 class="typing-text">I'm a <span class="type-span"></span></h3>
                 <p>I combine <strong>Operational Hospitality experience</strong> with a strong <strong>Literature background</strong> and <strong>AI skills</strong> to bridge the gap between revenue growth (Sales) and employee development (L&D).</p>
                 <div class="btn-box">
-                    <a href="#portfolio" class="btn">Explore My Work</a>
+                    <a href="#contact" class="btn">Explore My Work</a>
                     <a href="https://www.linkedin.com/in/gagandeepsalujaa/" target="_blank" class="btn-outline">LinkedIn Profile</a>
                 </div>
-               
+                <div class="social-media">
+                    <a href="https://www.linkedin.com/login" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:workwithgagandeepsaluja@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.google.com/drive/" target="_blank"><i class="fas fa-file-alt"></i></a>
+                </div>
             </div>
             <div class="home-img">
                 <img src="img_1.JPG" alt="Profile">
@@ -245,6 +249,26 @@
             </div>
         </section>
 
+        <section class="services" id="services">
+            <h2 class="heading">Core <span>Competencies</span></h2>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="service-icon"><i class="fas fa-handshake"></i></div>
+                    <h3>Business Development</h3>
+                    <p>Persuasive B2B sales and relationship management.</p>
+                </div>
+                <div class="card">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Talent Development</h3>
+                    <p>Designing and delivering modern training solutions.</p>
+                </div>
+                <div class="card">
+                    <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h3>Strategic Communication</h3>
+                    <p>Advanced verbal and written narratives for global brands.</p>
+                </div>
+            </div>
+        </section>
 
         <section class="contact" id="contact">
             <h2 class="heading">Contact <span>Me</span></h2>
@@ -267,7 +291,7 @@
     </main>
 
     <script>
-        // 1. TYPING EFFECT
+        /* Typing Effect */
         const typeSpan = document.querySelector('.type-span');
         const textArray = ["Sales Strategist", "Talent Developer", "Hospitality Professional", "Literature Student"];
         let textArrayIndex = 0;
@@ -295,7 +319,7 @@
         }
         document.addEventListener("DOMContentLoaded", () => setTimeout(type, 1000));
 
-        // 2. MOBILE MENU & MOTION BLUR LOGIC
+        /* Mobile Menu */
         let menuIcon = document.querySelector('#menu-icon');
         let navbar = document.querySelector('.navbar');
         let mainContent = document.querySelector('#main-content');
@@ -319,7 +343,7 @@
             });
         });
 
-        // 3. SCROLL SPY
+        /* Scroll Spy */
         let sections = document.querySelectorAll('section');
         window.onscroll = () => {
             sections.forEach(sec => {
