@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gagandeep Saluja | Sales & L&D Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/993/993928.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- 1. VARIABLES --- */
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #636e72;
+            --accent-color: #2980b9;    
+            --secondary-accent: #1abc9c; 
+            --border-color: #dfe6e9;
+            --nav-bg: rgba(255, 255, 255, 0.90);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; text-decoration: none; list-style: none; outline: none; border: none; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        html { scroll-behavior: smooth; }
+        
+        main {
+            transition: filter 0.4s ease, transform 0.4s ease;
+            will-change: filter, transform;
+        }
+
+        .motion-blur-active {
+            filter: blur(8px) grayscale(50%);
+            transform: scale(0.98);
+            opacity: 0.8;
+        }
+
+        section { 
+            min-height: 100vh; 
+            padding: 8rem 9% 4rem; 
+            display: flex; flex-direction: column; justify-content: center;
+        }
+
+        .header {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1000px;
+            background: var(--nav-bg); backdrop-filter: blur(15px);
+            padding: 0.8rem 2rem; border-radius: 50px;
+            box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.8);
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000;
+        }
+
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 8px; }
+        .logo i { color: var(--accent-color); }
+
+        .navbar { display: flex; gap: 2rem; }
+        .navbar a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; transition: .3s; cursor: pointer; }
+        .navbar a:hover, .navbar a.active { color: var(--accent-color); }
+
+        #menu-icon { font-size: 1.8rem; color: var(--text-main); cursor: pointer; display: none; }
+
+        .home { flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; }
+        .home-content { max-width: 600px; }
+        .home-content h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.2; }
+        .typing-text { font-size: clamp(1.2rem, 3vw, 2rem); color: var(--text-muted); margin: 10px 0; }
+        .typing-text span { color: var(--accent-color); }
+        .badge { background: #e3f2fd; padding: 5px 15px; border-radius: 20px; color: var(--accent-color); font-weight: 600; margin-bottom: 1rem; display: inline-block; }
+
+        .home-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .home-img img { 
+            width: 100%; 
+            max-width: 450px; 
+            height: auto; 
+            object-fit: cover; 
+            border-radius: 20px; 
+            box-shadow: 20px 20px 0px var(--accent-color); 
+            animation: float 6s ease-in-out infinite; 
+        }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
+        .btn-box { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+        .btn { padding: 10px 25px; background: var(--accent-color); color: #fff; border-radius: 8px; font-weight: 600; transition: .3s; }
+        .btn:hover { background: #1e638f; transform: translateY(-3px); }
+        .btn-outline { background: transparent; color: var(--accent-color); border: 2px solid var(--accent-color); border-radius: 8px; padding: 8px 23px; }
+        .btn-outline:hover { background: var(--accent-color); color: #fff; }
+
+        .social-media { margin-top: 2rem; display: flex; gap: 1rem; }
+        .social-media a { width: 40px; height: 40px; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-main); transition: .3s; }
+        .social-media a:hover { background: var(--accent-color); color: #fff; }
+
+        .heading { text-align: center; font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 3rem; }
+        .heading span { color: var(--accent-color); }
+        
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; width: 100%; }
+        .card { background: #fff; padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); transition: 0.3s; border: 1px solid #f1f1f1; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+
+        /* --- POST CONTAINER STYLE --- */
+        .post-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        /* This makes the image look like a clickable card */
+        .post-link {
+            display: block;
+            width: 100%;
+            max-width: 504px; /* Matches LinkedIn embed width */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid #dfe6e9;
+            transition: transform 0.3s ease;
+        }
+        .post-link:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+        .post-link img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-icon { font-size: 1.5rem; color: var(--accent-color); background: #e3f2fd; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 10px; margin-bottom: 1rem; }
+        
+        /* --- UPDATED CONTACT SECTION CSS --- */
+        .contact-container { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center; 
+            gap: 2rem; 
+            background: #fff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .contact-info p { margin-bottom: 0.5rem; }
+        .contact-details { margin-top: 1rem; font-size: 1.1rem; }
+
+        @media (max-width: 991px) {
+            section { padding: 8rem 4% 4rem; } 
+            .home { flex-direction: column-reverse; text-align: center; gap: 4rem; }
+            .home-content { max-width: 100%; }
+            .btn-box { justify-content: center; } .social-media { justify-content: center; }
+            .home-img img { margin-bottom: 2rem; width: 80%; max-width: 320px; }
+        }
+
+        @media (max-width: 768px) {
+            .header { width: 90%; padding: 0.6rem 1.5rem; border-radius: 30px; }
+            #menu-icon { display: block; } 
+            .navbar { position: absolute; top: 120%; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-radius: 20px; box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.8); padding: 1rem; display: none; flex-direction: column; text-align: center; }
+            .navbar.active { display: flex; animation: slideDown 0.3s ease; }
+            .navbar a { display: block; margin: 1rem 0; font-size: 1.1rem; color: var(--text-main); }
+            @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo"><i class="fas fa-hotel"></i> Gagandeep Saluja</a>
+        <i class="fas fa-bars" id="menu-icon"></i>
+
+        <nav class="navbar">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="#about" class="nav-link">Background</a>
+            <a href="#portfolio" class="nav-link">Strategy</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        
+        <section class="home" id="home">
+            <div class="home-content">
+                <div class="badge"><i class="fas fa-rocket"></i> Open for Sales, HR & L&D Roles</div>
+                <h1>Hi, I'm Gagandeep</h1>
+                <h3 class="typing-text">I'm a <span class="type-span"></span></h3>
+                <p>I combine <strong>Operational Hospitality experience</strong> with a strong <strong>Literature background</strong> and <strong>AI skills</strong> to bridge the gap between revenue growth (Sales) and employee development (L&D).</p>
+                <div class="btn-box">
+                    <a href="#portfolio" class="btn">Explore My Work</a>
+                    <a href="https://www.linkedin.com/in/gagandeepsalujaa/" target="_blank" class="btn-outline">LinkedIn Profile</a>
+                </div>
+               
+            </div>
+            <div class="home-img">
+                <img src="img_1.JPG" alt="Profile">
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h2 class="heading">Strategic <span>Background</span></h2>
+            <div class="about-content" style="text-align:center; max-width:800px; margin:0 auto 2rem auto;">
+                <p>I hold a dual-qualification that bridges human empathy and corporate growth: a degree in <strong>Hotel Management (DIHM)</strong> and <strong>English Literature (IGNOU)</strong>. My literature background equips me with advanced storytelling and communication skills essential for both persuasive sales pitches and clear training instructional design.</p>
+            </div>
+            <div class="grid-container">
+                <div class="card" style="text-align: center;">
+                    <i class="fas fa-pen-fancy" style="font-size: 2rem; color:var(--accent-color); margin-bottom:1rem;"></i>
+                    <h3>Communication</h3>
+                    <p>BA English Literature (Hons)</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <i class="fas fa-chart-line" style="font-size: 2rem; color:var(--accent-color); margin-bottom:1rem;"></i>
+                    <h3>Operations</h3>
+                    <p>Radisson Blu Industrial Training</p>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <i class="fas fa-robot" style="font-size: 2rem; color:var(--accent-color); margin-bottom:1rem;"></i>
+                    <h3>Innovation</h3>
+                    <p>AI Prompt Engineering & Design</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="portfolio" id="portfolio">
+            <h2 class="heading">Strategic <span>Insights</span></h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: var(--text-muted);">
+                Latest ideas and brand strategies from my LinkedIn feed.
+            </p>
+            
+            <div class="post-container">
+                <a href="https://www.linkedin.com/feed/update/urn:li:share:7429841419931975680/" target="_blank" class="post-link">
+                    <img src="linkedin-post.jpg" alt="Click to view LinkedIn Post">
+                </a>
+            </div>
+        </section>
+
+
+        <section class="contact" id="contact">
+            <h2 class="heading">Contact <span>Me</span></h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Drive Growth Together</h3>
+                    <p>Ready to apply my hybrid skillset to your Sales, Marketing, or L&D team.</p>
+                    
+                    <div class="contact-details">
+                        <p><i class="fas fa-envelope" style="color:var(--accent-color);"></i> workwithgagandeepsaluja@gmail.com</p>
+                        <p><i class="fas fa-map-marker-alt" style="color:var(--accent-color);"></i> Delhi, India</p>
+                    </div>
+                </div>
+
+                <a href="mailto:workwithgagandeepsaluja@gmail.com" class="btn" style="display: inline-flex; align-items: center; gap: 10px; font-size: 1.1rem;">
+                    <i class="fas fa-paper-plane"></i> Send Direct Email
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // 1. TYPING EFFECT
+        const typeSpan = document.querySelector('.type-span');
+        const textArray = ["Sales Strategist", "Talent Developer", "Hospitality Professional", "Literature Student"];
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                typeSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(erase, 2000);
+            }
+        }
+        function erase() {
+            if (charIndex > 0) {
+                typeSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, 50);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, 1000);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", () => setTimeout(type, 1000));
+
+        // 2. MOBILE MENU & MOTION BLUR LOGIC
+        let menuIcon = document.querySelector('#menu-icon');
+        let navbar = document.querySelector('.navbar');
+        let mainContent = document.querySelector('#main-content');
+        let navLinks = document.querySelectorAll('.nav-link');
+
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+        };
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                navLinks.forEach(n => n.classList.remove('active'));
+                this.classList.add('active');
+                menuIcon.classList.remove('fa-times');
+                navbar.classList.remove('active');
+                mainContent.classList.add('motion-blur-active');
+                setTimeout(() => {
+                    mainContent.classList.remove('motion-blur-active');
+                }, 500);
+            });
+        });
+
+        // 3. SCROLL SPY
+        let sections = document.querySelectorAll('section');
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute('id');
+                if(top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove('active');
+                        document.querySelector('.navbar a[href*=' + id + ']').classList.add('active');
+                    });
+                }
+            });
+        };
+    </script>
+</body>
+</html>
